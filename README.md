@@ -5,10 +5,19 @@ In this game players control a gun that shoots bullets to advance through the le
 ## Game Objects
 There are 3 type of gates that players can shoot to gain power ups: Bullet range gates, fire rate gates and double shoot gates. When a player pass through these gates, their powers will increase according to the number on the gates. When gates are on a positive number, their color is green. When gates are on a negative number, their color is red. There are woodden obstacles with numbers on them that can block a gate. If players can shoot these woodden obstacles to zero the gates will become accesable.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/DoubleShootGate.png)\
-Double Shoot Gates\
+Double Shoot Gates.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/DoubleShootExample.png)\
-Double Shoot active on player\
+Double Shoot active on player.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/fire%20rate%20green.png)\
 Positive Fire Rate Gates. One with woodden obstacle.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/GatesRed.png)\
 Negative Fire Rate and Bullet Range Gates.\
+There are bullet objects that can increase player's bullet damage. Players can shoot these bullet objects to increase the damage. When a player collets these bullet objects, they will transfer to the next Cutscene Gate. When a player passes a Cutscene Gate the damage of our gun's bullets will change accordingly. There is also a Gun Power objects that can change the player gun's appearance. Every ten damage will increase the Gun Power by one. When Gun Power reaches three the gun will become red. When Gun Power reaches five the gun will become black. And when Gun Power reaches ten the gun will become magenta.\
+![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/BulletObject.png)\
+Bullet Objects.\
+![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/CutsceneGate.png)\
+Cutscene gates that hold the Bullet Objects.\
+![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/GunPowerUpObj.png)\
+Gun Power Objects.\
+![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/RedGun2.png)\
+Gun Power reached three, Gun become red.\
