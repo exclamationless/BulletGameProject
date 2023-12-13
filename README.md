@@ -23,8 +23,8 @@ Cutscene gates that hold the Bullet Objects.\
 Gun Power Objects.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/RedGun2.png)\
 Gun Power reached three, Gun color changed to red.\
-There is a user interface that displays Gun Power, Level name and Money to the players. There is also a Main Menu and End of Level Menu that can be clicked to access desired levels.
-![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/WinMenu.png)\
+There is a user interface that displays Gun Power, Level name and Money to the players. There is also a Main Menu and End of Level Menu that can be clicked to access desired levels.\
+![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/UserInterface.png)\
 User Interface displays the Gun Power , Level Name and Current Money.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/MainMenu.png)\
 Main Menu interface.\
