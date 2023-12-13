@@ -15,7 +15,7 @@ Positive Fire Rate Gates. One with woodden obstacle.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/GatesRed.png)\
 Negative Fire Rate and Bullet Range Gates.
 
--
+
 There are bullet objects that can increase player's bullet damage. Players can shoot these bullet objects to increase the damage. When a player collets these bullet objects, they will transfer to the next Cutscene Gate. When a player passes a Cutscene Gate the damage of our gun's bullets will change accordingly. There is also a Gun Power objects that can change the player gun's appearance. Every ten damage will increase the Gun Power by one. When Gun Power reaches three the gun will become red. When Gun Power reaches five the gun will become black. And when Gun Power reaches ten the gun will become magenta.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/BulletObject.png)\
 Bullet Objects.\
