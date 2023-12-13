@@ -5,5 +5,10 @@ In this game players control a gun that shoots bullets to advance through the le
 ## Game Objects
 There are 3 type of gates that players can shoot to gain power ups: Bullet range gates, fire rate gates and double shoot gates. When a player pass through these gates, their powers will increase according to the number on the gates. When gates are on a positive number, their color is green. When gates are on a negative number, their color is red. There are woodden obstacles with numbers on them that can block a gate. If players can shoot these woodden obstacles to zero the gates will become accesable.\
 ![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/DoubleShootGate.png)\
-Double Shoot Gates
-![Alt text]()
+Double Shoot Gates\
+![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/DoubleShootExample.png)\
+Double Shoot active on player\
+![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/fire%20rate%20green.png)\
+Positive Fire Rate Gates. One with woodden obstacle.\
+![Alt text](https://github.com/exclamationless/BulletGameProject/blob/main/ProjectImages/GatesRed.png)\
+Negative Fire Rate and Bullet Range Gates.\
