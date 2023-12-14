@@ -164,6 +164,10 @@ MonoBehaviour:
   - {fileID: 4626687310822814269}
   - {fileID: 5185265395006015167}
   gunRenderer: {fileID: 8629608178891087256}
+  mainCamera: {fileID: 7884232112172921158}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &4083515338925111327
 MonoBehaviour:
   m_ObjectHideFlags: 0

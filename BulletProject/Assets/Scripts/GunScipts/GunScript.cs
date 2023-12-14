@@ -19,6 +19,9 @@ public class GunScript : MonoBehaviour
     public TextMeshProUGUI[] bulletDamageText;
 
     public Renderer gunRenderer;
+
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private LayerMask layerMask;
     
     void Awake(){
         bulletDamage = new int[4];
@@ -50,16 +53,12 @@ public class GunScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
-            if(this.gameObject.transform.position.x > leftBoundary) {
-                transform.Translate(Vector3.left * horizontalSpeed * Time.deltaTime);
-            }
-            
-        } if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
-            if(this.gameObject.transform.position.x < rightBoundary) {
-                transform.Translate(Vector3.right * horizontalSpeed * Time.deltaTime);
-            }
-        }
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, layerMask)){
+            Vector3 moveVector = new Vector3(raycastHit.point.x , transform.position.y , transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, moveVector, 0.04f);
+           
+        } 
         
         if(Singleton.instance.gunPower>=3 && Singleton.instance.gunPower<5)
         {
