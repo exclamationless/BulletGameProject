@@ -22,6 +22,10 @@ public class GunScript : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask layerMask;
+
+    [SerializeField] private float maxDisplacement = 3f;
+    [SerializeField] private float maxPositionX = 4.5f;
+    private Vector2 _anchorPosition;
     
     void Awake(){
         bulletDamage = new int[4];
@@ -52,23 +56,49 @@ public class GunScript : MonoBehaviour
     
 
     void Update()
-    {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, layerMask)){
-            Vector3 moveVector = new Vector3(raycastHit.point.x , transform.position.y , transform.position.z);
-            transform.position = Vector3.MoveTowards(transform.position, moveVector, 0.04f);
-           
-        } 
+    {     
+        var inputX = GetInput();
+            
+        var displacementX = GetDisplacement(inputX);
+            
+        displacementX = SmoothOutDisplacement(displacementX);
+            
+        var newPosition = GetNewLocalPosition(displacementX);
+            
+        newPosition = GetLimitedLocalPosition(newPosition);
+
+        transform.localPosition = newPosition;
+
+        /*Debug.Log(mainCamera.ScreenToWorldPoint(Input.mousePosition));
+        Vector3 mouseWorldPosition = Input.mousePosition;
+        mouseWorldPosition.y = transform.position.y;
+        mouseWorldPosition.z = transform.position.z;
+        if(mouseWorldPosition.x<=0){
+            mouseWorldPosition.x = -4.5f;
+            }else if(mouseWorldPosition.x>0.0f && mouseWorldPosition.x < ((Screen.width/7)*3))
+            {
+                mouseWorldPosition.x = -4.5f;}
+            else if(mouseWorldPosition.x>=((Screen.width/7)*3) && mouseWorldPosition.x < ((Screen.width/7)*4))
+            {
+                mouseWorldPosition.x = transform.position.x;}
+            else if(mouseWorldPosition.x>=((Screen.width/7)*4) && mouseWorldPosition.x < Screen.width)
+            {
+                mouseWorldPosition.x = 4.5f;}
+            else if(mouseWorldPosition.x>=Screen.width)
+            {
+                mouseWorldPosition.x = 4.5f;}
+
+            transform.position = Vector3.MoveTowards(transform.position, mouseWorldPosition, 0.04f);*/
         
         if(Singleton.instance.gunPower>=3 && Singleton.instance.gunPower<5)
         {
             gunRenderer.material.color=Color.red;
-
         } 
         else if (Singleton.instance.gunPower>=5 && Singleton.instance.gunPower<10) 
         {
             gunRenderer.material.color=Color.black;
-        } else if (Singleton.instance.gunPower>=10) 
+        } 
+        else if (Singleton.instance.gunPower>=10) 
         {
             gunRenderer.material.color=Color.magenta;
         }
@@ -80,6 +110,49 @@ public class GunScript : MonoBehaviour
         bulletDamageText[3].text = bulletDamage[3].ToString();
 
     }
+
+
+    private Vector3 GetLimitedLocalPosition(Vector3 position)
+    {
+        position.x = Mathf.Clamp(position.x, -maxPositionX, maxPositionX);
+        return position;
+    }
+
+    private Vector3 GetNewLocalPosition(float displacementX)
+    {
+        var lastPosition = transform.localPosition;
+        var newPositionX = lastPosition.x + displacementX;
+        var newPosition = new Vector3(newPositionX, lastPosition.y, lastPosition.z);
+        return newPosition;
+    }
+
+    private float GetInput()
+    {
+            var inputX = 0f;
+            if (Input.GetMouseButtonDown(0))
+            {
+                _anchorPosition = Input.mousePosition;
+            }
+
+            else if (Input.GetMouseButton(0))
+            {
+                inputX = (Input.mousePosition.x - _anchorPosition.x);
+                _anchorPosition = Input.mousePosition;
+            }
+            return inputX;
+    }
+
+    private float GetDisplacement(float inputX)
+    {
+        var displacementX = 0f;
+        displacementX = inputX * Time.deltaTime;
+        return displacementX;
+    }
+    private float SmoothOutDisplacement(float displacementX)
+    {
+        return Mathf.Clamp(displacementX, -maxDisplacement, maxDisplacement);
+    }
+    
 
     void ShootBullet(){
         GameObject TempBullet = Instantiate(bullet1, transform);

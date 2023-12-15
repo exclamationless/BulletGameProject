@@ -959,7 +959,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.1
+  m_fontSize: 30.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1459,7 +1459,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.2
+  m_fontSize: 38.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1593,7 +1593,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.65
+  m_fontSize: 36.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1865,7 +1865,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65.35
+  m_fontSize: 67.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2084,6 +2084,14 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1488454508}
+    - target: {fileID: 2090805749123243963, guid: 2325ae0e84981bb458e3c9e565e044dd, type: 3}
+      propertyPath: maxPositionX
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090805749123243963, guid: 2325ae0e84981bb458e3c9e565e044dd, type: 3}
+      propertyPath: maxDisplacement
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4083515338925111327, guid: 2325ae0e84981bb458e3c9e565e044dd, type: 3}
       propertyPath: winCanvas
       value: 
