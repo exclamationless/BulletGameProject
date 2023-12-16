@@ -398,9 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e71e1f7b7296d145ad5b0e3ec5e3a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectText: {fileID: 6249622849364654953}
   gunPowerCollider: {fileID: 2875617480887094168}
   gunPowerNum: 0
-  gunPowerText: {fileID: 6249622849364654953}
 --- !u!1001 &701324834861755154
 PrefabInstance:
   m_ObjectHideFlags: 0

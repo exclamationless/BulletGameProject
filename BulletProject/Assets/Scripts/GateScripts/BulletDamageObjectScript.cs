@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BulletDamageObjectScript : MonoBehaviour
+public class BulletDamageObjectScript : ObjectsAbstract
 {
     public CapsuleCollider bulletDamageObjectCollider;
 
@@ -13,8 +13,6 @@ public class BulletDamageObjectScript : MonoBehaviour
     public bool isReverseMoving = false;
     public Vector3 targetPos;
     private float reverseRunwayspeed = 10f;
-
-    public TextMeshProUGUI bulletDamageText;
 
     void Start()
     {
@@ -38,21 +36,17 @@ public class BulletDamageObjectScript : MonoBehaviour
 
         }
 
-        bulletDamageText.text = bulletDamageNum.ToString();
+        objectText.text = bulletDamageNum.ToString();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Bullet")
         {           
             bulletDamageNum = bulletDamageNum+other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-            Debug.Log("Bullet Damage Num = " + bulletDamageNum);
+            Debug.Log("Bullet Damage Object Recived Bulllet. Bullet Damage Num = " + bulletDamageNum);
             other.gameObject.SetActive(false);
-
-
-        }
-           
-        
+        }       
         
     }
 }

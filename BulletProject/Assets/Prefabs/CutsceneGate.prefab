@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f52b89f9c9722043ba611bb8ae07334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneCollider: {fileID: 0}
+  cutsceneCollider: {fileID: 7516825763344908694}
   currentBulletNum: 0
   BulletHolder: 
 --- !u!1001 &1659180255436589124

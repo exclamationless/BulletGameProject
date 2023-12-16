@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MoveObstacleScript : MonoBehaviour
+public class MoveObstacleScript : ObjectsAbstract
 {
     public int moveObstaclePower;
-
-    public TextMeshProUGUI moveObstacleText;
     
     void Start()
     {
@@ -17,20 +15,19 @@ public class MoveObstacleScript : MonoBehaviour
 
     void Update()
     {
-        moveObstacleText.text = moveObstaclePower.ToString();
+        objectText.text = moveObstaclePower.ToString();
         if(moveObstaclePower>=0){
             this.gameObject.SetActive(false);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Bullet")
         {
             Debug.Log("Obstacle Recived Bulllet");
             moveObstaclePower = moveObstaclePower + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
             other.gameObject.SetActive(false);
-            
         }
 
     }

@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class WinObjectScript : MonoBehaviour
+public class WinObjectScript : ObjectsAbstract
 {
     public int winObjectPower=5;
-
-    public TextMeshProUGUI winObjectText;
     
     void Start()
     {
@@ -17,19 +15,18 @@ public class WinObjectScript : MonoBehaviour
 
     void Update()
     {
-        winObjectText.text = winObjectPower.ToString();
+        objectText.text = winObjectPower.ToString();
         if(winObjectPower<=0){
             this.gameObject.SetActive(false);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Bullet")
         {
             winObjectPower = winObjectPower - other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
             other.gameObject.SetActive(false);
-
         }
         
     }

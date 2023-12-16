@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7972f7d9b56ee4198968e80eb5bd6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectText: {fileID: 3215639578042635353}
   moveObstaclePower: 0
-  moveObstacleText: {fileID: 3215639578042635353}
 --- !u!1 &8366034124432497867
 GameObject:
   m_ObjectHideFlags: 0

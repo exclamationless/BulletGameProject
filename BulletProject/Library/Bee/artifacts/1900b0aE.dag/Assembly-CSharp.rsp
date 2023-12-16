@@ -359,6 +359,7 @@
 "Assets/Scripts/GateScripts/GateScipt.cs"
 "Assets/Scripts/GateScripts/GunPowerObject.cs"
 "Assets/Scripts/GateScripts/MoveObstacleScript.cs"
+"Assets/Scripts/GateScripts/ObjectsAbstract.cs"
 "Assets/Scripts/GateScripts/ObstacleScipt.cs"
 "Assets/Scripts/GateScripts/WinObjectScript.cs"
 "Assets/Scripts/GateScripts/WinObjectSetScript.cs"

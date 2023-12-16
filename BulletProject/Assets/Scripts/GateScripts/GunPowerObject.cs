@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-public class GunPowerObject : MonoBehaviour
+public class GunPowerObject : ObjectsAbstract
 {
     public BoxCollider gunPowerCollider;
 
@@ -12,8 +10,6 @@ public class GunPowerObject : MonoBehaviour
     private int gunPowerMultiplier2 = 1;
     public int gunPowerNum;
     private int gunPowerCounter;
-
-    public TextMeshProUGUI gunPowerText;
     
     void Start()
     {
@@ -23,14 +19,14 @@ public class GunPowerObject : MonoBehaviour
     }
 
     void Update(){
-        gunPowerText.text = gunPowerNum.ToString();
+        objectText.text = gunPowerNum.ToString();
         if(gunPowerNum<=0){
             gunPowerNum=0;
             gunPowerCollider.enabled=false;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Bullet")
         {

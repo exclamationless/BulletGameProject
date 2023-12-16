@@ -135,12 +135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c98b66e5394cb42a10c518b60e8a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectText: {fileID: 4923089149173668803}
   GateCollider: {fileID: 8875439506215484814}
   fireRateNum: 42
   bulletRangeNum: 30
   obstacleNum: 0
-  bulletRangeText: {fileID: 4923089149173668803}
-  fireRateText: {fileID: 4923089149173668803}
 --- !u!54 &-8253629119729224948
 Rigidbody:
   m_ObjectHideFlags: 0

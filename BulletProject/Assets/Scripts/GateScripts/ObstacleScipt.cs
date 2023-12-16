@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ObstacleScipt : MonoBehaviour
+public class ObstacleScipt : ObjectsAbstract
 {
     public int obstaclePower;
-
-    public TextMeshProUGUI obstacleText;
     
     void Start()
     {
@@ -20,7 +18,7 @@ public class ObstacleScipt : MonoBehaviour
 
     void Update()
     {
-        obstacleText.text = obstaclePower.ToString();
+        objectText.text = obstaclePower.ToString();
         if(obstaclePower>=0){
             gameObject.GetComponentInParent<GateScipt>().GateCollider.enabled = true;
             transform.parent.GetChild(0).gameObject.SetActive(true);
@@ -28,11 +26,11 @@ public class ObstacleScipt : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Bullet")
         {
-            Debug.Log("Obstacle Recived Bulllet");
+            Debug.Log("Gate Obstacle Recived Bulllet");
             obstaclePower = obstaclePower + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
             other.gameObject.SetActive(false);
             

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GateScipt : MonoBehaviour
+public class GateScipt : ObjectsAbstract
 {
     public BoxCollider GateCollider;
 
@@ -13,9 +13,6 @@ public class GateScipt : MonoBehaviour
     public int bulletRangeNum;
 
     public int obstacleNum;
-
-    public TextMeshProUGUI bulletRangeText;
-    public TextMeshProUGUI fireRateText;
 
     Renderer gateRenderer;
 
@@ -37,7 +34,7 @@ public class GateScipt : MonoBehaviour
     void Update()
     {
         if(this.gameObject.tag == "BulletRangeGate"){
-            bulletRangeText.text = bulletRangeNum.ToString();
+            objectText.text = bulletRangeNum.ToString();
             if(bulletRangeNum<0){
                 gateRenderer.material.color=Color.red;
 
@@ -48,7 +45,7 @@ public class GateScipt : MonoBehaviour
 
         }
         else if(this.gameObject.tag == "FireRateGate"){
-            bulletRangeText.text = fireRateNum.ToString();
+            objectText.text = fireRateNum.ToString();
             if(fireRateNum<0){
                 gateRenderer.material.color=Color.red;
 
@@ -58,7 +55,7 @@ public class GateScipt : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Bullet")
         {
@@ -67,6 +64,7 @@ public class GateScipt : MonoBehaviour
                 bulletRangeNum = bulletRangeNum + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
                 other.gameObject.SetActive(false);
 
+
             } 
             else if(this.gameObject.tag == "FireRateGate"){
                 Debug.Log("Fire Rate Gate Recived Bulllet");
@@ -74,11 +72,10 @@ public class GateScipt : MonoBehaviour
                 other.gameObject.SetActive(false);
 
             } else if(this.gameObject.tag == "DoubleShootGate"){
+                Debug.Log("Double Shoot Gate Recived Bulllet");
                 other.gameObject.SetActive(false);
 
-            }
-
-
+            } 
 
         }       
 

@@ -399,12 +399,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c98b66e5394cb42a10c518b60e8a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectText: {fileID: 2674098627638954049}
   GateCollider: {fileID: 8875439506215484814}
   fireRateNum: 0
   bulletRangeNum: 0
   obstacleNum: 0
-  bulletRangeText: {fileID: 0}
-  fireRateText: {fileID: 0}
 --- !u!1 &4381744372829151226
 GameObject:
   m_ObjectHideFlags: 0
