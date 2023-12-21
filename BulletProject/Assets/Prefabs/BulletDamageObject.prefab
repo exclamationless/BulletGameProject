@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 1797741748358417110}
   - component: {fileID: 4146240778067664787}
   - component: {fileID: 6511608989584801645}
+  - component: {fileID: 1142844720605504157}
   m_Layer: 0
   m_Name: BulletDamageObject
   m_TagString: BulletDamageObject
@@ -405,6 +406,19 @@ MonoBehaviour:
   bulletDamageNum: 0
   isReverseMoving: 0
   targetPos: {x: 0, y: 0, z: 0}
+--- !u!114 &1142844720605504157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9210770336088519672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab94a767c7a114e48afc32228d807438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagList: []
 --- !u!1001 &208251841570285925
 PrefabInstance:
   m_ObjectHideFlags: 0

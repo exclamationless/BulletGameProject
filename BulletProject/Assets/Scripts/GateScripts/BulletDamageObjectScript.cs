@@ -41,12 +41,7 @@ public class BulletDamageObjectScript : ObjectsAbstract
 
     public override void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bullet")
-        {           
-            bulletDamageNum = bulletDamageNum+other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-            Debug.Log("Bullet Damage Object Recived Bulllet. Bullet Damage Num = " + bulletDamageNum);
-            other.gameObject.SetActive(false);
-        }       
+        base.OnTriggerEnter(other);
         
     }
 }

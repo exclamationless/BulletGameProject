@@ -23,11 +23,7 @@ public class WinObjectScript : ObjectsAbstract
 
     public override void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bullet")
-        {
-            winObjectPower = winObjectPower - other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-            other.gameObject.SetActive(false);
-        }
+        base.OnTriggerEnter(other);
         
     }
 }

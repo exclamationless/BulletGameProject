@@ -6,10 +6,10 @@ public class GunPowerObject : ObjectsAbstract
 {
     public BoxCollider gunPowerCollider;
 
-    private int gunPowerMultiplier1 = 10;
-    private int gunPowerMultiplier2 = 1;
+    public int gunPowerMultiplier1 = 10;
+    public int gunPowerMultiplier2 = 1;
     public int gunPowerNum;
-    private int gunPowerCounter;
+    public int gunPowerCounter;
     
     void Start()
     {
@@ -28,16 +28,6 @@ public class GunPowerObject : ObjectsAbstract
 
     public override void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bullet")
-        {
-            gunPowerNum = gunPowerNum - other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-            if(gunPowerCounter-gunPowerNum>=gunPowerMultiplier2*10 && gunPowerNum>0){
-                Singleton.instance.gunPower++;
-                gunPowerMultiplier2++;
-
-            }
-            other.gameObject.SetActive(false);
-
-        }
+        base.OnTriggerEnter(other);
     }
 }

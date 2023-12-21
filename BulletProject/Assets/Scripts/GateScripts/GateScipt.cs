@@ -57,27 +57,7 @@ public class GateScipt : ObjectsAbstract
 
     public override void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bullet")
-        {
-            if(this.gameObject.tag == "BulletRangeGate"){
-                Debug.Log("Bullet Range Gate Recived Bulllet");
-                bulletRangeNum = bulletRangeNum + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-                other.gameObject.SetActive(false);
-
-
-            } 
-            else if(this.gameObject.tag == "FireRateGate"){
-                Debug.Log("Fire Rate Gate Recived Bulllet");
-                fireRateNum = fireRateNum + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-                other.gameObject.SetActive(false);
-
-            } else if(this.gameObject.tag == "DoubleShootGate"){
-                Debug.Log("Double Shoot Gate Recived Bulllet");
-                other.gameObject.SetActive(false);
-
-            } 
-
-        }       
+       base.OnTriggerEnter(other);
 
     }
     

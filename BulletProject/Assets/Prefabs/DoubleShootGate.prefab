@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 5446287353967274005}
   - component: {fileID: 7266329933872226471}
   - component: {fileID: 1172256143701357246}
+  - component: {fileID: -6320125606930203662}
   m_Layer: 0
   m_Name: DoubleShootGate
   m_TagString: DoubleShootGate
@@ -404,6 +405,19 @@ MonoBehaviour:
   fireRateNum: 0
   bulletRangeNum: 0
   obstacleNum: 0
+--- !u!114 &-6320125606930203662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4285942524740643182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab94a767c7a114e48afc32228d807438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagList: []
 --- !u!1 &4381744372829151226
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,13 +28,7 @@ public class ObstacleScipt : ObjectsAbstract
 
     public override void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Bullet")
-        {
-            Debug.Log("Gate Obstacle Recived Bulllet");
-            obstaclePower = obstaclePower + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-            other.gameObject.SetActive(false);
-            
-        }
+        base.OnTriggerEnter(other);
 
     }
 }
