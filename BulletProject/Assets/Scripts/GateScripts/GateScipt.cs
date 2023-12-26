@@ -4,13 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GateScipt : ObjectsAbstract
+public class GateScipt : Interactable
 {
     public BoxCollider GateCollider;
-
-    public int fireRateNum;
-
-    public int bulletRangeNum;
 
     public int obstacleNum;
 
@@ -18,8 +14,7 @@ public class GateScipt : ObjectsAbstract
 
     void Start()
     {
-        bulletRangeNum = Random.Range(-10, 5);
-        fireRateNum = Random.Range(-10, 5);
+        objectInt = Random.Range(-10, 5);
         
         GateCollider = gameObject.GetComponent<BoxCollider>();
 
@@ -34,22 +29,22 @@ public class GateScipt : ObjectsAbstract
     void Update()
     {
         if(this.gameObject.tag == "BulletRangeGate"){
-            objectText.text = bulletRangeNum.ToString();
-            if(bulletRangeNum<0){
+            objectText.text = objectInt.ToString();
+            if(objectInt<0){
                 gateRenderer.material.color=Color.red;
 
-            } else if(bulletRangeNum>=0){
+            } else if(objectInt>=0){
                 gateRenderer.material.color=Color.green;
             }
 
 
         }
         else if(this.gameObject.tag == "FireRateGate"){
-            objectText.text = fireRateNum.ToString();
-            if(fireRateNum<0){
+            objectText.text = objectInt.ToString();
+            if(objectInt<0){
                 gateRenderer.material.color=Color.red;
 
-            } else if(fireRateNum>=0){
+            } else if(objectInt>=0){
                 gateRenderer.material.color=Color.green;
             }
         }
@@ -58,6 +53,12 @@ public class GateScipt : ObjectsAbstract
     public override void OnTriggerEnter(Collider other)
     {
        base.OnTriggerEnter(other);
+
+    }
+
+    public override void TagAdder()
+    {
+        base.TagAdder();
 
     }
     

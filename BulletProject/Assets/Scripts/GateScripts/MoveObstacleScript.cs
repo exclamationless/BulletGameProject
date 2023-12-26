@@ -4,19 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MoveObstacleScript : ObjectsAbstract
+public class MoveObstacleScript : Interactable
 {
-    public int moveObstaclePower;
-    
+
     void Start()
     {
-        moveObstaclePower = Random.Range(-10, -3);
+        objectInt = Random.Range(-10, -3);
     }
 
     void Update()
     {
-        objectText.text = moveObstaclePower.ToString();
-        if(moveObstaclePower>=0){
+        objectText.text = objectInt.ToString();
+        if(objectInt>=0){
             this.gameObject.SetActive(false);
         }
     }
@@ -24,6 +23,12 @@ public class MoveObstacleScript : ObjectsAbstract
     public override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
+
+    }
+
+    public override void TagAdder()
+    {
+        base.TagAdder();
 
     }
 }

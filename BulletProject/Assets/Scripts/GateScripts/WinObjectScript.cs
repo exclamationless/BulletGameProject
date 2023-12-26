@@ -4,19 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class WinObjectScript : ObjectsAbstract
+public class WinObjectScript : Interactable
 {
-    public int winObjectPower=5;
+    public int winObjectPower;
+
     
     void Start()
     {
-        winObjectPower = winObjectPower * gameObject.GetComponentInParent<WinObjectSetScript>().winObjectPowerMultiplier;
+        objectInt = -5;
+        objectInt = objectInt * gameObject.GetComponentInParent<WinObjectSetScript>().winObjectPowerMultiplier;
     }
 
     void Update()
     {
-        objectText.text = winObjectPower.ToString();
-        if(winObjectPower<=0){
+        winObjectPower = Mathf.Abs(objectInt);
+        objectText.text = Mathf.Abs(objectInt).ToString();
+        if(objectInt>=0){
             this.gameObject.SetActive(false);
         }
     }
@@ -25,5 +28,11 @@ public class WinObjectScript : ObjectsAbstract
     {
         base.OnTriggerEnter(other);
         
+    }
+
+    public override void TagAdder()
+    {
+        base.TagAdder();
+
     }
 }

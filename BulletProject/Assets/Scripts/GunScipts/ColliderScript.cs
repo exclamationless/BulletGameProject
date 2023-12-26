@@ -40,7 +40,7 @@ public class ColliderScript : MonoBehaviour
         else if(other.tag == "FireRateGate")
         {
             if(other.gameObject!=null){
-                float tempFireRateNum = other.gameObject.GetComponent<GateScipt>().fireRateNum;
+                float tempFireRateNum = other.gameObject.GetComponent<GateScipt>().objectInt;
                 Singleton.instance.fireRate = Singleton.instance.fireRate - (tempFireRateNum/100);
                 Debug.Log("FireRate = " + tempFireRateNum/100);
 
@@ -51,7 +51,7 @@ public class ColliderScript : MonoBehaviour
         else if(other.tag == "BulletRangeGate")
         {
             if(other.gameObject!=null){
-                float tempBulletRangeNum = other.gameObject.GetComponent<GateScipt>().bulletRangeNum;
+                float tempBulletRangeNum = other.gameObject.GetComponent<GateScipt>().objectInt;
                 Singleton.instance.bulletRange = Singleton.instance.bulletRange + (tempBulletRangeNum/100);
                 Debug.Log("BulletRange = " + tempBulletRangeNum);
 

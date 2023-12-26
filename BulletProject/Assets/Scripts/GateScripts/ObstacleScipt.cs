@@ -4,22 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ObstacleScipt : ObjectsAbstract
+public class ObstacleScipt : Interactable
 {
-    public int obstaclePower;
-    
     void Start()
     {
         gameObject.GetComponentInParent<GateScipt>().GateCollider.enabled = false;
         transform.parent.GetChild(0).gameObject.SetActive(false);
 
-        obstaclePower = Random.Range(-10, -3);
+        objectInt = Random.Range(-10, -3);
     }
 
     void Update()
     {
-        objectText.text = obstaclePower.ToString();
-        if(obstaclePower>=0){
+        objectText.text = objectInt.ToString();
+        if(objectInt>=0){
             gameObject.GetComponentInParent<GateScipt>().GateCollider.enabled = true;
             transform.parent.GetChild(0).gameObject.SetActive(true);
             this.gameObject.SetActive(false);
@@ -31,4 +29,11 @@ public class ObstacleScipt : ObjectsAbstract
         base.OnTriggerEnter(other);
 
     }
+
+    public override void TagAdder()
+    {
+        base.TagAdder();
+
+    }
+
 }

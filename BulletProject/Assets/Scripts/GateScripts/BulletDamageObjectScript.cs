@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BulletDamageObjectScript : ObjectsAbstract
+public class BulletDamageObjectScript : Interactable
 {
     public CapsuleCollider bulletDamageObjectCollider;
 
@@ -16,13 +16,14 @@ public class BulletDamageObjectScript : ObjectsAbstract
 
     void Start()
     {
-        bulletDamageNum = Random.Range(-7, 3);
+        objectInt = Random.Range(-7, 3);
 
         bulletDamageObjectCollider = gameObject.GetComponent<CapsuleCollider>();
     }
 
     void Update()
     {
+        bulletDamageNum = objectInt;
         if(isReverseMoving==true){
             if(transform.position.x>-6){
                 transform.Translate(Vector3.left * reverseRunwayspeed * Time.deltaTime);
@@ -36,12 +37,18 @@ public class BulletDamageObjectScript : ObjectsAbstract
 
         }
 
-        objectText.text = bulletDamageNum.ToString();
+        objectText.text = objectInt.ToString();
     }
 
     public override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
         
+    }
+
+    public override void TagAdder()
+    {
+        base.TagAdder();
+
     }
 }
