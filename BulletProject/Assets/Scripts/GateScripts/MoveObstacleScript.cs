@@ -20,15 +20,15 @@ public class MoveObstacleScript : Interactable
         }
     }
 
-    public override void OnTriggerEnter(Collider other)
+    public override void OnObjectEnter(Collider other)
     {
-        base.OnTriggerEnter(other);
+        base.OnObjectEnter(other);
 
     }
 
-    public override void TagAdder()
+    public override void colliderAdder()
     {
-        base.TagAdder();
+        base.colliderAdder();
 
     }
 }

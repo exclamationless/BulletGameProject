@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectText: {fileID: 1265101097213347958}
+  objectInt: 0
+  triggerListenerRef: {fileID: -3853336188308121683}
   winObjectPower: 5
 --- !u!114 &-3853336188308121683
 MonoBehaviour:
@@ -179,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagList: []
+  colliderList: []
 --- !u!1 &6438313109213504923
 GameObject:
   m_ObjectHideFlags: 0

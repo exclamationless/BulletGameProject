@@ -25,9 +25,9 @@ public class GunPowerObject : Interactable
         }
     }
 
-    public override void OnTriggerEnter(Collider other)
+    public override void OnObjectEnter(Collider other)
     {
-        base.OnTriggerEnter(other);
+        base.OnObjectEnter(other);
         if(other.tag == "Bullet"){
             if(Mathf.Abs(gunPowerCounter)-Mathf.Abs(objectInt) >= gunPowerMultiplier2*10 && objectInt<0){
                 Singleton.instance.gunPower++;
@@ -38,9 +38,9 @@ public class GunPowerObject : Interactable
         
     }
 
-    public override void TagAdder()
+    public override void colliderAdder()
     {
-        base.TagAdder();
+        base.colliderAdder();
 
     }
 }

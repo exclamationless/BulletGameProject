@@ -10,41 +10,58 @@ public class Interactable : MonoBehaviour
 
   public int objectInt;
 
-  public List<string> tagList = new List<string>();
+  private bool isTagAdded = true;
 
-  public void Start(){
+  [SerializeField]
+  protected TriggerListener triggerListenerRef;
 
-    var triggerListenerRef = new TriggerListener();
+  private void OnEnable(){
 
-    triggerListenerRef.OnEnter += OnTriggerEnter;
+    triggerListenerRef.OnEnter += OnObjectEnter;
 
-    triggerListenerRef.OnStay += OnTriggerStay;
+    triggerListenerRef.OnStay += OnObjectStay;
 
-    triggerListenerRef.OnExit += OnTriggerExit;
+    triggerListenerRef.OnExit += OnObjectExit;
+
+    colliderAdder();
     
   }
 
-  public virtual void TagAdder()
-    {
-        tagList.Add(this.gameObject.tag);
-    }
+  private void OnDisable(){
+
+    triggerListenerRef.OnEnter -= OnObjectEnter;
+
+    triggerListenerRef.OnStay -= OnObjectStay;
+
+    triggerListenerRef.OnExit -= OnObjectExit;
+    
+  }
+
+  public virtual void colliderAdder()
+  {
+    triggerListenerRef.colliderList.Add(GetComponent<Collider>());
+  }
   
-  public virtual void OnTriggerEnter(Collider other)
+  public virtual void OnObjectEnter(Collider other)
     {
-      if(other.tag == "Bullet")
+      if(other.TryGetComponent(out BulletScript bullet))
         {
           Debug.Log("Object Recived Bulllet");
           objectInt = objectInt + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-          Debug.Log("Event Working");
           other.gameObject.SetActive(false);
+
+           if(isTagAdded){
+            triggerListenerRef.tagList.Add(other.tag);
+            isTagAdded=false;
+          }
         
         }
 
     }
 
-  public virtual void OnTriggerStay(Collider other)
+  public virtual void OnObjectStay(Collider other)
     {
-      if(other.tag == "Bullet")
+      if(other.TryGetComponent(out BulletScript bullet))
         {
           Debug.Log("Object Recived Bullet OnTriggerStay");
           //other.gameObject.SetActive(false);
@@ -53,9 +70,9 @@ public class Interactable : MonoBehaviour
 
     }
 
-  public virtual void OnTriggerExit(Collider other)
+  public virtual void OnObjectExit(Collider other)
     {
-      if(other.tag == "Bullet")
+      if(other.TryGetComponent(out BulletScript bullet))
         {
           Debug.Log("Object Recived Bullet OnTriggerExit");
           //other.gameObject.SetActive(false);

@@ -251,7 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectText: {fileID: 3151205812063097059}
-  obstaclePower: 0
+  objectInt: 0
+  triggerListenerRef: {fileID: 4847165615512727619}
 --- !u!114 &4847165615512727619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagList: []
+  colliderList: []
 --- !u!1 &6120605703283878160
 GameObject:
   m_ObjectHideFlags: 0

@@ -402,6 +402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectText: {fileID: 5576751346179921197}
+  objectInt: 0
+  triggerListenerRef: {fileID: 1142844720605504157}
   bulletDamageObjectCollider: {fileID: 4869161866109003274}
   bulletDamageNum: 0
   isReverseMoving: 0
@@ -419,6 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagList: []
+  colliderList: []
 --- !u!1001 &208251841570285925
 PrefabInstance:
   m_ObjectHideFlags: 0

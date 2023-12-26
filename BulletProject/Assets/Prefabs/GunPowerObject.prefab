@@ -400,10 +400,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectText: {fileID: 6249622849364654953}
+  objectInt: 0
+  triggerListenerRef: {fileID: 8909559569141070592}
   gunPowerCollider: {fileID: 2875617480887094168}
   gunPowerMultiplier1: 10
   gunPowerMultiplier2: 1
-  gunPowerNum: 0
   gunPowerCounter: 0
 --- !u!114 &8909559569141070592
 MonoBehaviour:
@@ -418,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagList: []
+  colliderList: []
 --- !u!1001 &701324834861755154
 PrefabInstance:
   m_ObjectHideFlags: 0

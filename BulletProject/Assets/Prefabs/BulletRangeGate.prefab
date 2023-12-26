@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectText: {fileID: 4923089149173668803}
+  objectInt: 0
+  triggerListenerRef: {fileID: 6515209170841647752}
   GateCollider: {fileID: 8875439506215484814}
-  fireRateNum: 42
-  bulletRangeNum: 30
   obstacleNum: 0
 --- !u!54 &-8253629119729224948
 Rigidbody:
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagList: []
+  colliderList: []
 --- !u!1 &5154435507273925616
 GameObject:
   m_ObjectHideFlags: 0
