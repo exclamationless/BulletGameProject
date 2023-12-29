@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 8969303135505073826}
   - component: {fileID: 5569511892668865322}
   - component: {fileID: 8536290139828350415}
+  - component: {fileID: 544134796113237813}
   m_Layer: 0
   m_Name: CutsceneGate
   m_TagString: CutsceneGate
@@ -343,9 +344,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f52b89f9c9722043ba611bb8ae07334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectText: {fileID: 0}
+  objectInt: 0
+  triggerListenerRef: {fileID: 544134796113237813}
   cutsceneCollider: {fileID: 7516825763344908694}
   currentBulletNum: 0
   BulletHolder: 
+--- !u!114 &544134796113237813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7619856234421021373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab94a767c7a114e48afc32228d807438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagList: []
+  colliderList: []
 --- !u!1001 &1659180255436589124
 PrefabInstance:
   m_ObjectHideFlags: 0

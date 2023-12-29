@@ -22,7 +22,18 @@ public class MoveObstacleScript : Interactable
 
     public override void OnObjectEnter(Collider other)
     {
-        base.OnObjectEnter(other);
+       base.OnObjectEnter(other);
+       if(other.TryGetComponent(out BulletScript bullet))
+        {
+          objectInt = objectInt + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
+          other.gameObject.SetActive(false);
+
+           if(isTagAdded){
+            triggerListenerRef.tagList.Add(other.tag);
+            isTagAdded=false;
+          }
+        
+        }
 
     }
 

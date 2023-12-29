@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CutsceneScript : MonoBehaviour
+public class CutsceneScript : Interactable
 {
     public BoxCollider cutsceneCollider;
 
@@ -23,12 +23,15 @@ public class CutsceneScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    public override void OnObjectEnter(Collider other)
     {
-        if(other.tag == "BulletDamageObject" && currentBulletNum < 4){
+        if(other.TryGetComponent(out BulletDamageObjectScript bulletDO) && currentBulletNum < 4){
+            if(isTagAdded){
+            triggerListenerRef.tagList.Add(other.tag);
+            isTagAdded=false;
+            }
             BulletHolder[currentBulletNum] = other.gameObject.GetComponent<BulletDamageObjectScript>().bulletDamageNum;
             currentBulletNum++;
-
             other.gameObject.GetComponent<BulletDamageObjectScript>().isReverseMoving = false;
             other.transform.position = new Vector3(currentBulletPosX, 1.5f, transform.position.z);
             other.gameObject.GetComponent<RunwayMover>().RunwaySpeed = 4;
@@ -36,11 +39,17 @@ public class CutsceneScript : MonoBehaviour
 
             other.gameObject.GetComponent<BulletDamageObjectScript>().bulletDamageObjectCollider.enabled = false;
         }
-        else if(other.tag == "BulletDamageObject" && currentBulletNum >= 4){
+        else if(other.TryGetComponent(out BulletDamageObjectScript bulletDO2) && currentBulletNum >= 4){
             other.gameObject.SetActive(false);
         }
             
         
+    }
+
+    public override void colliderAdder()
+    {
+        base.colliderAdder();
+
     }
 
 }

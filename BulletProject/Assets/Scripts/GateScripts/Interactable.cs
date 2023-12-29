@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
   public TextMeshProUGUI objectText;
 
   public int objectInt;
 
-  private bool isTagAdded = true;
+  protected bool isTagAdded = true;
 
   [SerializeField]
   protected TriggerListener triggerListenerRef;
@@ -43,41 +43,30 @@ public class Interactable : MonoBehaviour
   }
   
   public virtual void OnObjectEnter(Collider other)
-    {
-      if(other.TryGetComponent(out BulletScript bullet))
-        {
-          Debug.Log("Object Recived Bulllet");
-          objectInt = objectInt + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
-          other.gameObject.SetActive(false);
+  {
+    Debug.Log("OnObjectEnter Working");
 
-           if(isTagAdded){
-            triggerListenerRef.tagList.Add(other.tag);
-            isTagAdded=false;
-          }
-        
-        }
-
-    }
+  }
 
   public virtual void OnObjectStay(Collider other)
-    {
-      if(other.TryGetComponent(out BulletScript bullet))
-        {
-          Debug.Log("Object Recived Bullet OnTriggerStay");
-          //other.gameObject.SetActive(false);
+  {
+    if(other.TryGetComponent(out BulletScript bullet))
+      {
+        Debug.Log("Object Recived Bullet OnTriggerStay");
+        //other.gameObject.SetActive(false);
         
-        }
+      }
 
-    }
+  }
 
   public virtual void OnObjectExit(Collider other)
-    {
-      if(other.TryGetComponent(out BulletScript bullet))
-        {
-          Debug.Log("Object Recived Bullet OnTriggerExit");
-          //other.gameObject.SetActive(false);
+  {
+    if(other.TryGetComponent(out BulletScript bullet))
+      {
+        Debug.Log("Object Recived Bullet OnTriggerExit");
+        //other.gameObject.SetActive(false);
         
-        }
+      }
 
-    }
+  }
 }

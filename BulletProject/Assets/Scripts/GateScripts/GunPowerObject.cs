@@ -27,12 +27,22 @@ public class GunPowerObject : Interactable
 
     public override void OnObjectEnter(Collider other)
     {
-        base.OnObjectEnter(other);
-        if(other.tag == "Bullet"){
-            if(Mathf.Abs(gunPowerCounter)-Mathf.Abs(objectInt) >= gunPowerMultiplier2*10 && objectInt<0){
+       base.OnObjectEnter(other);
+       if(other.TryGetComponent(out BulletScript bullet))
+        {
+          objectInt = objectInt + other.gameObject.GetComponent<BulletScript>().tempBulletDamage;
+          other.gameObject.SetActive(false);
+
+           if(isTagAdded){
+            triggerListenerRef.tagList.Add(other.tag);
+            isTagAdded=false;
+          }
+
+          if(Mathf.Abs(gunPowerCounter)-Mathf.Abs(objectInt) >= gunPowerMultiplier2*10 && objectInt<0){
                 Singleton.instance.gunPower++;
                 gunPowerMultiplier2++;
                 }
+        
         }
         
         
